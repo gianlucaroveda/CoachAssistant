@@ -1,4 +1,4 @@
-const CACHE_NAME = 'coach-basket-v3';
+const CACHE_NAME = 'coach-basket-v4';
 const ASSETS = [
   './index.html',
   './impostazioni.html',
@@ -15,6 +15,7 @@ const ASSETS = [
   './manifest.json',
   './exercise-list.json'
 ];
+
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -34,14 +35,14 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return cached || fetch(event.request).then((response) => {
+    fetch(event.request)
+      .then((response) => {
         if (response.ok && event.request.method === 'GET') {
           const clone = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
         return response;
-      }).catch(() => cached);
-    })
+      })
+      .catch(() => caches.match(event.request)) // offline → usa la cache come riserva
   );
 });
