@@ -1,56 +1,323 @@
 
 [
   {
-    "id": "8h8cj639tb13",
-    "title": "Palleggio in slalom",
-    "type": "Riscaldamento",
-    "tags": ["palleggio", "coordinazione"],
-    "description": "Slalom tra 6 coni mantenendo la palla bassa, alternando mano destra e sinistra.",
-    "videoUrl": ""
-  },
-  {
-    "id": "k2n9dq18wc44",
-    "title": "Tiri da tre in sospensione",
-    "type": "Tecnica individuale",
-    "tags": ["tiro", "attacco"],
-    "description": "Serie di tiri da tre punti in sospensione da diverse angolazioni.",
-    "videoUrl": "https://www.youtube.com/watch?v=D6buhz75mxU"
-  },
-  {
-  "id": "4focrvk5v0i4",
-  "title": "ows",
+  "id": "njr43ol9ytyg",
+  "title": "10 passaggi",
+  "type": "Gioco / partita",
+  "tags": [
+    "difesa",
+    "passaggio",
+    "3vs3",
+    "4vs4",
+    "5vs5"
+  ],
+  "description": "Divisi in 2 squadre bisogna fare 10 passaggi senza essere intercettati. Questo è l'unico modo per fare punti",
+  "videoUrl": null
+},
+{
+  "id": "hkirbrl9w82n",
+  "title": "Passaggi nei coni",
+  "type": "Tattica di squadra",
+  "tags": [
+    "passaggio"
+  ],
+  "description": "2 squadre una su ogni metà campo.\nC'è un numero di coni maggiore di uno rispetto ai membri della squadra. L'obbiettivo è fare un certo numero di passaggio senza fare cadere il pallone. Ogni bimbo posizionato su un cono quando riceve palla e poi la passa si deve spostare sul cono libero.",
+  "videoUrl": null
+},
+{
+  "id": "63gk4ki0qh98",
+  "title": "Catch and shoot",
   "type": "Tecnica individuale",
   "tags": [
-    "agilità",
-    "coordinazione"
+    "tiro",
+    "difesa",
+    "attacco",
+    "salto"
   ],
-  "description": "bdau",
-  "videoUrl": "https://www.youtube.com/watch?v=xw0W4nHNFMY"
+  "description": "Divisi in coppie , il difensore con la palla su una mano sola con braccio ben disteso lascia cadere la palla. Quando la palla viene rilasciata è il via per fare partire l'attaccante. Il difensore dovrà toccare il cono da cui è partito l'attaccante prima di difendere, mentre l'attacco devi tirare appena prende palla",
+  "videoUrl": "https://www.instagram.com/reel/DaeVLjtsA7T/?igsh=MWZwN3h1d216ajNyYg=="
 },
 {
-  "id": "xhhe89pirq8c",
-  "title": "bu",
-  "type": "Gioco / partita",
-  "tags": [],
-  "description": "n",
+  "id": "3f0gch2satdo",
+  "title": "Passaggi coppie",
+  "type": "Tecnica individuale",
+  "tags": [
+    "palleggio"
+  ],
+  "description": "Disposti su due file per tutta la lunghezza del campo si fanno passaggi, possibile aggiungere un terzo e trasformarlo in una sorta di torello",
   "videoUrl": null
 },
 {
-  "id": "ern84zunsfti",
-  "title": "gg",
+  "id": "8h3so3by0g7v",
+  "title": "Gioco riflessi",
+  "type": "Riscaldamento",
+  "tags": [],
+  "description": "In cerchio divisi in coppie si danno dei comandi tipo :\"toccarsi i piedi\", \"ginocchia\". Quando si dice cono il primo dei due che prende il cono vince",
+  "videoUrl": "https://www.instagram.com/reel/DTwVJIiDROf/?igsh=YWpuNWVuMXk1cGp2"
+},{
+  "id": "eli8yfvru596",
+  "title": "Terzo tempo contestato",
+  "type": "Tecnica individuale",
+  "tags": [
+    "attacco",
+    "difesa",
+    "agilità",
+    "velocità",
+    "1vs1"
+  ],
+  "description": "Due ragazzi sono alla tacca grande, il passaggio indirizzato a uno dei due fa si che chi riceve palla attacca veloce in terzo tempo, l'altro contesta il tiro",
+  "videoUrl": "https://www.instagram.com/reel/DZbS5AsRMf6/?igsh=MWVhdDdlem9xcDA1eA=="
+},
+{
+  "id": "3yd5x61iphy4",
+  "title": "Gara squadre addominali",
   "type": "Condizionamento fisico",
   "tags": [
-    "difesa"
+    "forza",
+    "agilità",
+    "equilibrio"
   ],
-  "description": "gg",
+  "description": "Una scaletta in mezzo le persone che giocano devono togliere i cinesi e quando tornano indietro rimetterli, vince la squadra che finisce prima. (Il video è più chiaro)",
+  "videoUrl": "https://www.instagram.com/reel/DaC8eZXucSl/?igsh=MWc5dGgxMTVjNmY1eA=="
+},
+{
+  "id": "hwht0ejabv5k",
+  "title": "Percorso nelle file senza pallone",
+  "type": "Riscaldamento",
+  "tags": [
+    "coordinazione",
+    "forza",
+    "agilità",
+    "velocità",
+    "salto"
+  ],
+  "description": "Divisi in un certo numero di file 3,4 o 5. Si crea un percorso per ogni fila senza pallone. I ragazzi devono completare il percorso per prendere dei cinesini sparsi per il campo. La squadra che ne prende di più vince",
   "videoUrl": null
 },
 {
-  "id": "9yqqsdghsurr",
-  "title": "ff",
-  "type": "Tattica di squadra",
-  "tags": [],
-  "description": "f",
+  "id": "8b3hfgmm91vr",
+  "title": "Percorso nelle file con pallone",
+  "type": "Riscaldamento",
+  "tags": [
+    "coordinazione",
+    "tiro",
+    "palleggio",
+    "passaggio",
+    "agilità",
+    "salto",
+    "velocità"
+  ],
+  "description": "Divisi in 3 o 4 o 5 file a fondo campo, si crea un percorso tipo slalom o altro per il ball-handling e si termina con un tiro. Il primo che segna fa punto per la sua squadra",
   "videoUrl": null
+},
+{
+  "id": "7r5trmg15306",
+  "title": "Rotazione terzo tempo",
+  "type": "Riscaldamento",
+  "tags": [
+    "tiro",
+    "palleggio",
+    "passaggio"
+  ],
+  "description": "4 file ai 4 angoli, si fa a rotazione il da e vai per finire a canestro, chi ha passato prende il rimbalzo e la passa all'altra fila... Insomma il solito",
+  "videoUrl": null
+},
+{
+  "id": "ubtuvv182732",
+  "title": "Gara di tiro",
+  "type": "Tecnica individuale",
+  "tags": [
+    "tiro"
+  ],
+  "description": "2 file una da un lato del campo una dall'altro, si sceglie numero di canestri da fare di squadra e come farli. La prima fila che arriva al numero di canestri vince",
+  "videoUrl": null
+},
+{
+  "id": "ylo9i958zavg",
+  "title": "Fulmine ⚡",
+  "type": "Gioco / partita",
+  "tags": [
+    "attacco",
+    "velocità",
+    "resistenza",
+    "tiro"
+  ],
+  "description": "Non penso di dover spiegare fulmine...",
+  "videoUrl": null
+},
+{
+  "id": "8rz5g31nxd3q",
+  "title": "Terzo tempo a ripetizione",
+  "type": "Tecnica individuale",
+  "tags": [
+    "attacco",
+    "velocità",
+    "coordinazione",
+    "palleggio"
+  ],
+  "description": "Una fila centrale sotto canestro, il primo parte da un lato esce dall'area da tre e torna in terzo tempo, il secondo della fila prende il rimbalzo e corre dall'altro lato. Così a ripetizione",
+  "videoUrl": "https://www.instagram.com/reel/DYlU0GfNV2V/?igsh=cnh0OWwzZGkycGlu"
+},
+{
+  "id": "izhniy04s7yt",
+  "title": "Attacco 2v1 o 1vs2",
+  "type": "Tecnica individuale",
+  "tags": [
+    "attacco",
+    "palleggio",
+    "tiro",
+    "velocità",
+    "agilità"
+  ],
+  "description": "Si parte in fila in 3 in cima all'area da 3. La palla sta a quello centrale che comanda. Si può giocare come 1vs2 ovvero quello al centro corre a canestro gli altri 2 devono reagire e difendere.\n2vs1 ovvero solo il primo della fila difende",
+  "videoUrl": "https://www.instagram.com/reel/DaC4K6spMss/?igsh=MWs4OTU3aXF2aWFqNg=="
+},
+{
+  "id": "c8k1g2f7j5kk",
+  "title": "Terzo tempo 1vs1",
+  "type": "Tecnica individuale",
+  "tags": [
+    "1vs1",
+    "attacco",
+    "tiro",
+    "agilità",
+    "difesa",
+    "velocità"
+  ],
+  "description": "2 coni posti ai gomiti. Il difensore è posto circa al centro dell'area, l'attaccante è fuori dall'area da 3. L'attaccante sceglie da che lato passare e il difensore deve passare dall'altro cono prima di poter difendere",
+  "videoUrl": "https://www.instagram.com/reel/DXazElXjH7l/?igsh=MThkc3lxOW5sZzk3eQ=="
+},
+{
+  "id": "3e3ms47oepvh",
+  "title": "Paint finishing",
+  "type": "Tecnica individuale",
+  "tags": [
+    "attacco",
+    "tiro",
+    "palleggio"
+  ],
+  "description": "Due file sotto canestro, 3 coni in lunetta, guarda il video... È molto più facile da spiegare",
+  "videoUrl": "https://www.instagram.com/reel/DaEZa2OzPi2/?igsh=OWhmMzUzaHFxNnZw"
+},
+{
+  "id": "1n0pashj712g",
+  "title": "Corsa palleggi slalom",
+  "type": "Riscaldamento",
+  "tags": [
+    "palleggio",
+    "velocità",
+    "resistenza"
+  ],
+  "description": "Si parte correndo facendo giri di campo. L'ultimo della fila ha la palla e palleggiando deve arrivare in testa alla fila facendo uno slalom tra i compagni. Arrivato in testa passandosi la palla sopra la testa devono fare arrivare la palla infondo alla fila",
+  "videoUrl": "https://www.instagram.com/reel/DWy8Xs0kc7J/?igsh=MWtvd3BjNWtqYTY3eg=="
+},
+{
+  "id": "ikyrwqtp01q2",
+  "title": "Post sotto canestro e tiro",
+  "type": "Tecnica individuale",
+  "tags": [
+    "attacco",
+    "difesa",
+    "tiro",
+    "forza",
+    "equilibrio",
+    "1vs1"
+  ],
+  "description": "Si inizia sotto canestro. Si fa un attacco in post girando sul piede perno. Dopo il tiro da sotto, chi ha attaccato corre verso un cono per ricevere un pallone e tirare. Chi ha difeso sotto, deve prima prendere il pallone del rimbalzo e correre a difendere il tiro",
+  "videoUrl": "https://www.instagram.com/reel/DaIVKk_MjBu/?igsh=bDhvdDNpMTZkeHBo"
+},
+{
+  "id": "dlce3uzkt2fq",
+  "title": "Pivot (fondamentale bambini)",
+  "type": "Tecnica individuale",
+  "tags": [
+    "attacco",
+    "difesa",
+    "agilità"
+  ],
+  "description": "2 bambini. Uno con un piede dentro un cerchio (il perno) deve cercare di non fare toccare la palla all'altro bambino. Se la tocca si scambiano di ruolo",
+  "videoUrl": "https://www.instagram.com/reel/DaIqE_By38S/?igsh=MW5mb3pxaWJ2cGxwMA=="
+},
+{
+  "id": "uud8nno6nscv",
+  "title": "Gatto e topo",
+  "type": "Condizionamento fisico",
+  "tags": [
+    "coordinazione",
+    "agilità",
+    "velocità"
+  ],
+  "description": "Due persone si sfidano, il \"topo\" deve passare dall'altro lato passando da una porta ovvero dei conetti. Il gatto dall'altro lato può solo toccare il topo in quel frangente dove passa nella porta. (Il video è molto più chiaro)",
+  "videoUrl": "https://www.instagram.com/reel/DUEujVKEerJ/?igsh=MTBiZm8yd3k4OHJwZw=="
+},
+{
+  "id": "nkh4kaa4jsot",
+  "title": "Difesa e passaggio su Tiro",
+  "type": "Tecnica individuale",
+  "tags": [
+    "attacco",
+    "tiro",
+    "passaggio"
+  ],
+  "description": "2 persone sono ai gomiti pronti per tirare. Ci sono 2 persone sotto canestro, una con la palla e uno no.\nUna volta partito il passaggio da sotto canestro verso uno dei due tiratori al gomito, parte anche il difensore. Il tiratore può scegliere se tirare o passarla al secondo tiratore",
+  "videoUrl": "https://www.instagram.com/reel/DZz5DBHxL1k/?igsh=MW8zcHpkMHl0ZTBibQ=="
+},
+{
+  "id": "41no5dx5djji",
+  "title": "Rinforzo addominale cariola",
+  "type": "Condizionamento fisico",
+  "tags": [
+    "forza",
+    "resistenza",
+    "equilibrio"
+  ],
+  "description": "In 2 posizione tipo cariola ma a pancia in su. Una persona tiene i piedi di quello con le mani a terra e lascia andare un piede alla volta in maniera casuale. La persona in posizione di cariola non deve fare cadere a terra il piede indurendo gli addominali",
+  "videoUrl": "https://www.instagram.com/reel/DX5toN4KRx6/?igsh=MXhld3RtYzIydGJrcQ=="
+},
+{
+  "id": "ftu1g4arkx1g",
+  "title": "Staffetta peso",
+  "type": "Condizionamento fisico",
+  "tags": [
+    "forza",
+    "velocità",
+    "resistenza"
+  ],
+  "description": "2 squadre si sfidano, davanti a loro ci sono diversi conetti disposti in fila. Il peso deve essere messo nel cono più lontano. Al via il primo della fila parte, prende il peso e lo porta al secondo della fila che deve riportarlo al penultimo cono.",
+  "videoUrl": "https://www.instagram.com/reel/DaX7qlGxk__/?igsh=MXVrazZpZWtwd2hmcg=="
+},
+{
+  "id": "e4v30b4a43ch",
+  "title": "Reazione al colore",
+  "type": "Riscaldamento",
+  "tags": [
+    "agilità",
+    "velocità"
+  ],
+  "description": "2 si sfidano, partono in corsa e l'allenatore dice che colore e i ragazzi devono tornare passando vicino al cono o cerchio di quel colore. Vince il primo che prende la palla corrisponde",
+  "videoUrl": "https://www.instagram.com/reel/DZulSs0xnSK/?igsh=Z3M5dzd2aXM5b3Y5"
+},
+{
+  "id": "bp1k1qfdtv1z",
+  "title": "Leone e Gazzella",
+  "type": "Tecnica individuale",
+  "tags": [
+    "palleggio",
+    "velocità"
+  ],
+  "description": "In prima fila ci sono le \"gazzelle\",dietro con un pochino di distanza ci sono i \"leoni\". Al via si parte, le gazzelle avranno il pallone e devono raggiungere il muro infondo magari facendo anche qualche ball-handling particolare. Il leone deve prendere la gazzella toccando (può non avere il pallone)",
+  "videoUrl": "https://www.instagram.com/reel/DaQet7shIH3/?igsh=MTkwcWYwdW8wZnQ0Nw=="
+},
+{
+  "id": "5jgnhz9kgldw",
+  "title": "Lotta addominali",
+  "type": "Condizionamento fisico",
+  "tags": [
+    "equilibrio",
+    "coordinazione",
+    "forza"
+  ],
+  "description": "Si sfidano 2 bambini in posizione tipo plank, chi riesce a fare perder l'equilibrio all'altro vince",
+  "videoUrl": "https://www.instagram.com/reel/DYQCwkEGlmR/?igsh=MTlqc2dqcWV1dzZvcQ=="
 }
 ]
