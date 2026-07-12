@@ -1,0 +1,56 @@
+
+[
+  {
+    "id": "8h8cj639tb13",
+    "title": "Palleggio in slalom",
+    "type": "Riscaldamento",
+    "tags": ["palleggio", "coordinazione"],
+    "description": "Slalom tra 6 coni mantenendo la palla bassa, alternando mano destra e sinistra.",
+    "videoUrl": ""
+  },
+  {
+    "id": "k2n9dq18wc44",
+    "title": "Tiri da tre in sospensione",
+    "type": "Tecnica individuale",
+    "tags": ["tiro", "attacco"],
+    "description": "Serie di tiri da tre punti in sospensione da diverse angolazioni.",
+    "videoUrl": "https://www.youtube.com/watch?v=D6buhz75mxU"
+  },
+  {
+  "id": "4focrvk5v0i4",
+  "title": "ows",
+  "type": "Tecnica individuale",
+  "tags": [
+    "agilità",
+    "coordinazione"
+  ],
+  "description": "bdau",
+  "videoUrl": "https://www.youtube.com/watch?v=xw0W4nHNFMY"
+},
+{
+  "id": "xhhe89pirq8c",
+  "title": "bu",
+  "type": "Gioco / partita",
+  "tags": [],
+  "description": "n",
+  "videoUrl": null
+},
+{
+  "id": "ern84zunsfti",
+  "title": "gg",
+  "type": "Condizionamento fisico",
+  "tags": [
+    "difesa"
+  ],
+  "description": "gg",
+  "videoUrl": null
+},
+{
+  "id": "9yqqsdghsurr",
+  "title": "ff",
+  "type": "Tattica di squadra",
+  "tags": [],
+  "description": "f",
+  "videoUrl": null
+}
+]

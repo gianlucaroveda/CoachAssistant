@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#051D2C">
+  <title>Impostazioni — Allenamento</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --violet-500:#9B7EF2;
+      --violet-500-glow:rgba(155,126,242,.35);
+      --tide-400-glow:rgba(79,182,201,.35);
+    }
+
+    /* ---------- layout pagina ---------- */
+    body{ align-items:flex-start; }
+
+    .settings-app{
+      width:100%;
+      max-width:480px;
+      min-height:100dvh;
+      display:flex;
+      flex-direction:column;
+      background:var(--abyss-950);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* ---------- header coerente con l'app principale ---------- */
+    .settings-topbar{
+      position:relative;
+      z-index:1;
+      padding:20px 20px 18px;
+      background:linear-gradient(160deg,var(--deep-800) 0%, var(--abyss-900) 100%);
+      border-bottom:1px solid rgba(79,182,201,.18);
+      flex-shrink:0;
+    }
+
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 14px 8px 10px;
+      background:rgba(79,182,201,.1);
+      border:1px solid rgba(79,182,201,.28);
+      border-radius:30px;
+      color:var(--tide-400);
+      font-family:var(--font-body);
+      font-size:12.5px;
+      font-weight:600;
+      cursor:pointer;
+      transition:background .2s ease, transform .15s ease;
+      text-decoration:none;
+      margin-bottom:16px;
+    }
+    .back-btn:active{ background:rgba(79,182,201,.2); transform:translateX(-2px); }
+    .back-btn svg{ width:16px; height:16px; stroke:var(--tide-400); }
+
+    .settings-eyebrow{
+      font-family:var(--font-mono);
+      font-size:10px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--tide-400);
+      opacity:.8;
+      margin-bottom:6px;
+    }
+    .settings-title{
+      font-family:var(--font-display);
+      font-weight:700;
+      font-size:26px;
+      color:var(--foam-100);
+      line-height:1.1;
+      margin-bottom:5px;
+    }
+    .settings-subtitle{
+      font-family:var(--font-body);
+      font-size:12.5px;
+      color:var(--foam-400);
+    }
+
+    /* ---------- corpo scrollabile ---------- */
+    .settings-main{
+      position:relative;
+      z-index:1;
+      flex:1;
+      overflow-y:auto;
+      padding:20px 16px 32px;
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    .settings-section{ display:flex; flex-direction:column; }
+
+    .section-heading{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-family:var(--font-mono);
+      font-size:10.5px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--foam-400);
+      margin-bottom:12px;
+    }
+    .section-heading svg{ width:13px; height:13px; stroke:var(--tide-400); }
+
+    /* ---------- form nuovo slot: card in stile "console" ---------- */
+    .schedule-form{
+      background:linear-gradient(135deg,var(--deep-800) 0%, var(--abyss-900) 100%);
+      border:1px solid rgba(79,182,201,.16);
+      border-radius:16px;
+      padding:18px 16px 16px;
+    }
+
+    .field{ margin-bottom:14px; }
+    .field:last-of-type{ margin-bottom:0; }
+    .field label{
+      display:block;
+      font-family:var(--font-mono);
+      font-size:10.5px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--tide-400);
+      margin-bottom:6px;
+    }
+    .field input, .field select{
+      width:100%;
+      background:var(--abyss-950);
+      border:1px solid rgba(79,182,201,.22);
+      border-radius:10px;
+      padding:11px 12px;
+      color:var(--foam-100);
+      font-family:var(--font-body);
+      font-size:14.5px;
+      outline:none;
+      transition:border-color .2s ease;
+      appearance:none;
+      -webkit-appearance:none;
+    }
+    .field select{
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234FB6C9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 12px center;
+      padding-right:34px;
+    }
+    .field input:focus, .field select:focus{ border-color:var(--violet-500); }
+    .field input[type="time"]{
+      font-family:var(--font-mono);
+      letter-spacing:.03em;
+    }
+    .field input[type="time"]::-webkit-calendar-picker-indicator{
+      filter:invert(70%) sepia(15%) saturate(500%) hue-rotate(140deg);
+      cursor:pointer;
+    }
+
+    .field-row{ display:flex; gap:10px; }
+    .field-row .field{ flex:1; }
+
+    .form-hint{
+      font-size:11px;
+      color:var(--foam-400);
+      margin-top:-6px;
+      margin-bottom:14px;
+    }
+
+    .btn{
+      width:100%;
+      padding:13px;
+      border-radius:12px;
+      border:none;
+      font-family:var(--font-body);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .btn svg{ width:16px; height:16px; }
+    .btn-save{
+      background:var(--violet-500);
+      color:var(--abyss-950);
+      box-shadow:0 0 18px var(--violet-500-glow);
+      margin-top:4px;
+    }
+    .btn-save:active{ filter:brightness(.92); }
+
+    /* ---------- lista slot salvati ---------- */
+    .schedule-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .schedule-item{
+      --accent:var(--tide-400);
+      --accent-glow:var(--tide-400-glow);
+      background:linear-gradient(135deg,var(--deep-800) 0%, var(--abyss-900) 100%);
+      border:1px solid rgba(79,182,201,.16);
+      border-radius:14px;
+      padding:13px 14px 13px 12px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      position:relative;
+      overflow:hidden;
+      animation:item-in .35s ease both;
+    }
+    .schedule-item::before{
+      content:'';
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width:3px;
+      background:var(--accent);
+      opacity:.8;
+    }
+    @keyframes item-in{
+      from{ opacity:0; transform:translateY(8px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .schedule-item.removing{ animation:item-out .28s ease forwards; }
+    @keyframes item-out{
+      to{ opacity:0; transform:translateX(40px) scale(.96); }
+    }
+
+    .day-badge{
+      flex-shrink:0;
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      background:rgba(79,182,201,.1);
+      border:1px solid var(--accent);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .day-badge .day-short{
+      font-family:var(--font-display);
+      font-weight:700;
+      font-size:13.5px;
+      color:var(--accent);
+      text-transform:uppercase;
+      line-height:1.1;
+    }
+    .day-badge svg{ width:14px; height:14px; stroke:var(--accent); margin-bottom:2px; }
+
+    .schedule-body{ flex:1; min-width:0; }
+    .schedule-time{
+      font-family:var(--font-mono);
+      font-weight:700;
+      font-size:15px;
+      color:var(--foam-100);
+      letter-spacing:.02em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .schedule-time .sep{ color:var(--accent); margin:0 5px; font-weight:400; }
+    .schedule-meta{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      margin-top:4px;
+    }
+    .day-full{
+      font-size:11.5px;
+      color:var(--foam-300);
+      text-transform:capitalize;
+    }
+    .label-chip{
+      font-family:var(--font-mono);
+      font-size:9.5px;
+      letter-spacing:.04em;
+      padding:2px 8px;
+      border-radius:20px;
+      background:rgba(79,182,201,.12);
+      color:var(--accent);
+      border:1px solid rgba(79,182,201,.25);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:150px;
+    }
+
+    .schedule-delete{
+      flex-shrink:0;
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      border:1px solid rgba(255,111,89,.35);
+      background:rgba(255,111,89,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:background .2s ease, transform .15s ease, box-shadow .2s ease;
+    }
+    .schedule-delete svg{ width:14px; height:14px; stroke:var(--coral-500); }
+    .schedule-delete:active{
+      background:rgba(255,111,89,.22);
+      transform:scale(.92);
+      box-shadow:0 0 12px var(--coral-500-glow);
+    }
+
+    /* ---------- stato vuoto ---------- */
+    .empty-schedule{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:10px;
+      padding:34px 20px;
+      color:var(--foam-400);
+      border:1px dashed rgba(79,182,201,.25);
+      border-radius:14px;
+    }
+    .empty-schedule svg{ width:36px; height:36px; stroke:var(--tide-400); opacity:.55; }
+    .empty-schedule p{ font-size:13px; max-width:230px; line-height:1.5; }
+
+    /* ---------- toast ---------- */
+    .toast{
+      position:fixed;
+      bottom:26px;
+      left:50%;
+      transform:translateX(-50%) translateY(20px);
+      background:var(--deep-800);
+      border:1px solid rgba(79,182,201,.3);
+      color:var(--foam-100);
+      font-size:13px;
+      padding:11px 18px;
+      border-radius:30px;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease, transform .25s ease;
+      z-index:80;
+      box-shadow:0 6px 20px rgba(0,0,0,.4);
+      white-space:nowrap;
+    }
+    .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="settings-app">
+
+  <div class="settings-topbar">
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Torna all'allenamento
+    </a>
+    <div class="settings-eyebrow">Configurazione</div>
+    <div class="settings-title">Impostazioni</div>
+    <div class="settings-subtitle">Gestisci i giorni e gli orari dei tuoi allenamenti</div>
+  </div>
+
+  <div class="settings-main">
+
+    <div class="settings-section">
+      <div class="section-heading">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg>
+        Nuovo slot orario
+      </div>
+      <form class="schedule-form" id="schedule-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="s-day">Giorno</label>
+            <select id="s-day" required>
+              <option value="lunedì">Lunedì</option>
+              <option value="martedì">Martedì</option>
+              <option value="mercoledì">Mercoledì</option>
+              <option value="giovedì">Giovedì</option>
+              <option value="venerdì">Venerdì</option>
+              <option value="sabato">Sabato</option>
+              <option value="domenica">Domenica</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="s-start">Inizio</label>
+            <input type="time" id="s-start" required>
+          </div>
+          <div class="field">
+            <label for="s-end">Fine</label>
+            <input type="time" id="s-end" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="s-label">Descrizione</label>
+          <input type="text" id="s-label" placeholder="Es. Under 10, Prima squadra..." maxlength="30" required>
+        </div>
+        <div class="form-hint">Verrà salvato sul dispositivo e riproposto ogni volta che apri l'app.</div>
+        <button type="submit" class="btn btn-save">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          Aggiungi orario
+        </button>
+      </form>
+    </div>
+
+    <div class="settings-section">
+      <div class="section-heading">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        I tuoi orari
+      </div>
+      <div class="schedule-list" id="schedule-list">
+        <!-- popolato via JS -->
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="settings.js"></script>
+</body>
+</html>

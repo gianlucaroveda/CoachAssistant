@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#051D2C">
+  <title>Dettaglio esercizio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+  body{ align-items:flex-start; }
+
+  .detail-app{
+    width:100%;
+    max-width:480px;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    background:var(--abyss-950);
+  }
+
+  /* ---------- topbar compatta ---------- */
+  .detail-topbar{
+    flex-shrink:0;
+    padding:16px 18px;
+    background:var(--abyss-900);
+    border-bottom:1px solid rgba(79,182,201,.16);
+  }
+
+  .detail-back{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 14px 8px 10px;
+    background:rgba(79,182,201,.1);
+    border:1px solid rgba(79,182,201,.28);
+    border-radius:30px;
+    color:var(--tide-400);
+    font-family:var(--font-body);
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    transition:background .2s ease, transform .15s ease;
+    font: inherit; /* i bottoni non ereditano il font di default come i link */
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .detail-back:active{ background:rgba(79,182,201,.2); transform:translateX(-2px); }
+  .detail-back svg{ width:16px; height:16px; stroke:var(--tide-400); flex-shrink:0; }
+
+  /* ---------- corpo ---------- */
+  .detail-main{
+    flex:1;
+    padding:22px 18px 40px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .type-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    align-self:flex-start;
+    padding:6px 14px;
+    border-radius:20px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:700;
+    border:1px solid var(--badge-color, var(--tide-400));
+    color:var(--badge-color, var(--tide-400));
+    background:rgba(79,182,201,.08);
+  }
+
+  .detail-title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:25px;
+    color:var(--foam-100);
+    line-height:1.25;
+  }
+
+  .detail-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .detail-tag{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:.05em;
+    padding:5px 12px;
+    border-radius:20px;
+    background:rgba(79,182,201,.1);
+    color:var(--badge-color, var(--tide-400));
+    border:1px solid rgba(79,182,201,.25);
+  }
+
+  .detail-block{
+    background:linear-gradient(135deg,var(--deep-800) 0%, var(--abyss-900) 100%);
+    border:1px solid rgba(79,182,201,.16);
+    border-radius:16px;
+    padding:18px 16px;
+  }
+  .detail-block h2{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--foam-400);
+    margin-bottom:10px;
+  }
+  .detail-description{
+    font-family:var(--font-body);
+    font-size:14.5px;
+    line-height:1.65;
+    color:var(--foam-100);
+    white-space:pre-wrap;
+  }
+
+  .video-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:none;
+    background:var(--violet-500);
+    color:var(--bio-500);
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14.5px;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 0 18px var(--tide-400);
+  }
+  .video-btn:active{ filter:brightness(.92); }
+  .video-btn svg{ width:18px; height:18px; }
+  .video-btn.disabled{
+    background:var(--abyss-900);
+    color:var(--foam-400);
+    box-shadow:none;
+    border:1px dashed rgba(143,180,196,.3);
+    cursor:not-allowed;
+    pointer-events:none;
+  }
+
+  .not-found{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    text-align:center;
+    color:var(--foam-400);
+    padding:40px 20px;
+  }
+  .not-found svg{ width:44px; height:44px; stroke:var(--tide-400); opacity:.55; }
+</style>
+</head>
+<body>
+
+<div class="detail-app" id="detail-app">
+
+    <div class="detail-topbar">
+        <button type="button" class="detail-back" id="detail-back-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Torna indietro
+        </button>
+    </div>
+
+  <div class="detail-main" id="detail-main">
+    <!-- popolato via JS -->
+  </div>
+
+</div>
+
+<script src="detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#051D2C">
+  <title>Cerca esercizi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{ align-items:flex-start; }
+
+    .search-app{
+      width:100%;
+      max-width:480px;
+      min-height:100dvh;
+      display:flex;
+      flex-direction:column;
+      background:var(--abyss-950);
+    }
+
+    /* ---------- topbar ---------- */
+    .search-topbar{
+      flex-shrink:0;
+      position:sticky;
+      top:0;
+      z-index:5;
+      padding:16px 18px 14px;
+      background:linear-gradient(160deg,var(--deep-800) 0%, var(--abyss-900) 100%);
+      border-bottom:1px solid rgba(79,182,201,.18);
+    }
+
+    .search-back{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 14px 8px 10px;
+      background:rgba(79,182,201,.1);
+      border:1px solid rgba(79,182,201,.28);
+      border-radius:30px;
+      color:var(--tide-400);
+      font-family:var(--font-body);
+      font-size:12.5px;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      margin-bottom:14px;
+      transition:background .2s ease, transform .15s ease;
+    }
+    .search-back:active{ background:rgba(79,182,201,.2); transform:translateX(-2px); }
+    .search-back svg{ width:16px; height:16px; stroke:var(--tide-400); flex-shrink:0; }
+
+    .search-field-top{ position:relative; margin-bottom:12px; }
+    .search-field-top svg{
+      position:absolute; left:14px; top:50%; transform:translateY(-50%);
+      width:17px; height:17px; stroke:var(--tide-400); pointer-events:none;
+    }
+    .search-field-top input{
+      width:100%;
+      background:var(--abyss-950);
+      border:1px solid rgba(79,182,201,.25);
+      border-radius:12px;
+      padding:13px 14px 13px 40px;
+      color:var(--foam-100);
+      font-family:var(--font-body);
+      font-size:15px;
+      outline:none;
+      transition:border-color .2s ease;
+    }
+    .search-field-top input:focus{ border-color:var(--violet-500); }
+
+    /* ---------- filtri a pillole ---------- */
+    .filter-group{ margin-bottom:2px; }
+    .filter-group-label{
+      font-family:var(--font-mono);
+      font-size:9.5px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--foam-400);
+      margin-bottom:8px;
+    }
+    .filter-row{
+      display:flex;
+      gap:7px;
+      overflow-x:auto;
+      padding-bottom:10px;
+      scrollbar-width:none;
+    }
+    .filter-row::-webkit-scrollbar{ display:none; }
+
+    .filter-pill{
+      flex-shrink:0;
+      padding:7px 13px;
+      border-radius:20px;
+      font-family:var(--font-body);
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+      white-space:nowrap;
+      border:1px solid rgba(79,182,201,.25);
+      background:var(--abyss-950);
+      color:var(--foam-300);
+      transition:all .18s ease;
+    }
+    .filter-pill:active{ transform:scale(.96); }
+
+    .filter-pill.type-pill.active{
+      background:var(--pill-color, var(--tide-400));
+      border-color:var(--pill-color, var(--tide-400));
+      color:var(--abyss-950);
+      font-weight:700;
+    }
+    .filter-pill.tag-pill-filter.active{
+      background:var(--violet-500);
+      border-color:var(--violet-500);
+      color:var(--abyss-950);
+      font-weight:700;
+      box-shadow:0 0 10px var(--violet-500-glow);
+    }
+
+    /* ---------- corpo con risultati raggruppati ---------- */
+    .search-main{
+      flex:1;
+      padding:6px 16px 40px;
+    }
+
+    .type-section{ margin-top:22px; }
+    .type-section-header{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+      padding:0 2px;
+    }
+    .type-dot{
+      width:9px; height:9px;
+      border-radius:50%;
+      background:var(--pill-color, var(--tide-400));
+      box-shadow:0 0 8px var(--pill-color, var(--tide-400));
+      flex-shrink:0;
+    }
+    .type-section-title{
+      font-family:var(--font-display);
+      font-weight:700;
+      font-size:15px;
+      color:var(--foam-100);
+    }
+    .type-section-count{
+      font-family:var(--font-mono);
+      font-size:11px;
+      color:var(--foam-400);
+      margin-left:auto;
+    }
+
+    .search-empty{
+      text-align:center;
+      padding:60px 20px;
+      color:var(--foam-400);
+    }
+    .search-empty svg{ width:40px; height:40px; stroke:var(--tide-400); opacity:.5; margin-bottom:10px; }
+    .search-empty p{ font-size:13.5px; }
+    /* ---------- card esercizio nei risultati ---------- */
+    .results-list{
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    }
+
+    .result-card{
+      --accent:#4FB6C9;
+      background:linear-gradient(135deg,var(--deep-800) 0%, var(--abyss-900) 100%);
+      border:1px solid rgba(79,182,201,.16);
+      border-radius:12px;
+      padding:13px 12px 13px 14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+      transition:background .15s ease, transform .1s ease;
+    }
+    .result-card::before{
+      content:'';
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width:3px;
+      background:var(--accent);
+      opacity:.85;
+    }
+    .result-card:active{ background:var(--deep-700); transform:scale(.99); }
+
+    .result-card-title{
+      flex:1;
+      min-width:0;
+      font-family:var(--font-display);
+      font-weight:600;
+      font-size:14.5px;
+      color:var(--foam-100);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .result-add-btn{
+      flex-shrink:0;
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      border:1px solid var(--accent);
+      background:rgba(79,182,201,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:background .2s ease, transform .15s ease, box-shadow .2s ease;
+    }
+    .result-add-btn svg{ width:15px; height:15px; stroke:var(--accent); }
+    .result-add-btn:active{ transform:scale(.9); }
+    .result-add-btn.added{
+      background:var(--accent);
+      box-shadow:0 0 10px var(--accent);
+    }
+    .result-add-btn.added svg{ stroke:var(--abyss-950); }
+
+    /* ---------- toast ---------- */
+    .toast{
+      position:fixed;
+      bottom:26px;
+      left:50%;
+      transform:translateX(-50%) translateY(20px);
+      background:var(--deep-800);
+      border:1px solid rgba(79,182,201,.3);
+      color:var(--foam-100);
+      font-size:13px;
+      padding:11px 18px;
+      border-radius:30px;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease, transform .25s ease;
+      z-index:80;
+      box-shadow:0 6px 20px rgba(0,0,0,.4);
+      white-space:nowrap;
+    }
+    .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="search-app">
+
+  <div class="search-topbar">
+    <a href="index.html" class="search-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Torna all'allenamento
+    </a>
+
+    <div class="search-field-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Cerca per titolo, tag o tipologia...">
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">Tipologia</div>
+      <div class="filter-row" id="type-filter-row"></div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">Tag</div>
+      <div class="filter-row" id="tag-filter-row"></div>
+    </div>
+  </div>
+
+  <div class="search-main" id="search-main">
+    <!-- popolato via JS -->
+  </div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="search.js"></script>
+</body>
+</html>
